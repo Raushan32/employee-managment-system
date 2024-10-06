@@ -17,13 +17,9 @@ A web application for managing employees, tracking attendance, and handling payr
 - **Database**: MongoDB
 - **Authentication**: JWT (JSON Web Token)
 
-## Installation
-
 ### Prerequisites
 - Node.js
 - MongoDB
 - Git
 
-### Clone the Repository
-```bash
-git clone https://github.com/yourusername/employee-management-system.git
+https://github.com/Raushan32/employee-managment-system
