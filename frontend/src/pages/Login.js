@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { login } from "../api";
+import { login } from "../api"; 
 import { useNavigate } from "react-router-dom";
-import "./Login.css"; // Import the CSS for enhanced UI
+import "./Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -29,10 +29,14 @@ const Login = () => {
       const response = await login({ email, password });
       console.log("Login Response:", response.data);
 
-      // Navigate to dashboard if successful
-      navigate("/dashboard");
+      // Check if a redirect is needed (if your API returns it)
+      if (response.data.redirect) {
+        navigate(response.data.redirect); // Redirect to the dashboard
+      } else {
+        navigate("/dashboard"); // Fallback if no redirect is provided
+      }
     } catch (error) {
-      setError(error.response ? error.response.data : "Login failed. Please try again.");
+      setError(error.response ? error.response.data.message : "Login failed. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -43,7 +47,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login-page"> {/* Add this class to wrap the login container */}
+    <div className="login-page">
       <div className="login-container">
         <form onSubmit={handleSubmit} className="login-form">
           <h2>Login</h2>
