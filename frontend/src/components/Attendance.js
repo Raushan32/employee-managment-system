@@ -10,7 +10,8 @@ const Attendance = () => {
   const handleLogAttendance = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/attendance/log",
+        //"http://localhost:5000/api/attendance/log",
+        "https://backend-lciw.onrender.com/api/attendance/log",
         {
           employeeId,
           status,
@@ -40,7 +41,8 @@ const Attendance = () => {
   const fetchAttendanceRecords = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/attendance/${employeeId}`
+       // `http://localhost:5000/api/attendance/${employeeId}`
+        `https://backend-lciw.onrender.com/api/attendance/${employeeId}`
       );
       setRecords(response.data);
     } catch (error) {

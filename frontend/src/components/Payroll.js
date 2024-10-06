@@ -12,7 +12,8 @@ const PayrollForm = () => {
     try {
       console.log("Sending data:", { employeeId, month, year });
       const response = await axios.post(
-        "http://localhost:5000/api/payroll/add",
+      //  "http://localhost:5000/api/payroll/add",
+        "https://backend-lciw.onrender.com/api/payroll/add",
         {
           employeeId,
           month,
